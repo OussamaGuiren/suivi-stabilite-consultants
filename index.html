@@ -98,14 +98,15 @@
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    const token = params.get("token");
+    // const token = params.get("token");
+    const consultantId = urlParams.get('id');
     const identiteElement = document.getElementById("identite");
 
-    if (!token) {
+    if (!consultantId) {
       identiteElement.innerText = "Lien invalide (token manquant).";
     } else {
       // Récupération des infos consultant
-      fetch(`https://primary-production-ebd0.up.railway.app/webhook/IdentiteConsultant?token=${token}`)
+      fetch(`https://primary-production-ebd0.up.railway.app/webhook/IdentiteConsultant?id=${consultantId}`)
         .then(res => res.json())
         .then(data => {
           if (data.prenom && data.nom) {
@@ -118,7 +119,7 @@
     }
 
     async function sendResponse(etat) {
-      if (!token) {
+      if (!consultantId) {
         alert("Token manquant.");
         return;
       }
