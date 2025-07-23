@@ -107,7 +107,7 @@
       identiteElement.innerText = "Lien invalide (token manquant).";
     } else {
       // Récupération des infos consultant
-      fetch(`https://primary-production-ebd0.up.railway.app/webhook-test/IdentiteConsultant/?id=${consultantId}`, {
+      fetch(`https://primary-production-ebd0.up.railway.app/webhook/IdentiteConsultant/?id=${consultantId}`, {
             method: "GET",
             cache: "no-cache"
             })
