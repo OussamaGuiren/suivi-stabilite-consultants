@@ -106,7 +106,7 @@
       identiteElement.innerText = "Lien invalide (token manquant).";
     } else {
       // Récupération des infos consultant
-      fetch(`https://primary-production-ebd0.up.railway.app/webhook/IdentiteConsultant?id=${consultantId}`)
+      fetch(`https://primary-production-ebd0.up.railway.app/webhook/IdentiteConsultant/?id=${consultantId}`)
         .then(res => res.json())
         .then(data => {
           if (data.prenom && data.nom) {
