@@ -100,13 +100,17 @@
     const params = new URLSearchParams(window.location.search);
     // const token = params.get("token");
     const consultantId = params.get('id');
+    console.log(consultantId)
     const identiteElement = document.getElementById("identite");
 
     if (!consultantId) {
       identiteElement.innerText = "Lien invalide (token manquant).";
     } else {
       // Récupération des infos consultant
-      fetch(`https://primary-production-ebd0.up.railway.app/webhook/IdentiteConsultant/?id=${consultantId}`)
+      fetch(`https://primary-production-ebd0.up.railway.app/webhook/IdentiteConsultant/?id=${consultantId}`, {
+            method: "GET",
+            cache: "no-cache"
+            })
         .then(res => res.json())
         .then(data => {
           if (data.prenom && data.nom) {
