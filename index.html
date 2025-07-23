@@ -102,7 +102,7 @@
     const consultantId = params.get('id');
     console.log(consultantId)
     const identiteElement = document.getElementById("identite");
-
+ console.log(identiteElement)
     if (!consultantId) {
       identiteElement.innerText = "Lien invalide (token manquant).";
     } else {
@@ -113,6 +113,7 @@
             })
         .then(res => res.json())
         .then(data => {
+            console.log(data)
           if (data.prenom && data.nom) {
             identiteElement.innerText = `${data.prenom} ${data.nom}`;
           } else {
